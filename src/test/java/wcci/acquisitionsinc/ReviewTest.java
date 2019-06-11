@@ -24,14 +24,14 @@ public class ReviewTest {
 	@Test
 	public void reviewClassShouldHaveAnId() {
 		Review underTest = new Review(0, "", "", "", "");
-		int id = underTest.getID();
+		long id = underTest.getId();
 		assertEquals(0, id);
 	}
 
 	@Test
 	public void reviewClass1ShouldHaveAnIdOf1() {
 		Review underTest = new Review(1, "", "", "", "");
-		int id = underTest.getID();
+		long id = underTest.getId();
 		assertEquals(1, id);
 	}
 
@@ -69,12 +69,12 @@ public class ReviewTest {
 	@Test
 	public void constructorShouldHaveAllAtributes() {
 		Review underTest = new Review(1, "Title", "www.github.io", "Category", "Content");
-		int underTestID = underTest.getID();
+		long underTestID = underTest.getId();
 		String underTestTitle = underTest.getTitle();
 		String underTestImageUrl = underTest.getImageUrl();
 		String underTestCategory = underTest.getReviewCategory();
 		String underTestContent = underTest.getContent();
-		assertThat(underTestID, is(1));
+		assertEquals(1, underTestID);
 		assertThat(underTestTitle, is("Title"));
 		assertThat(underTestImageUrl, is("www.github.io"));
 		assertThat(underTestCategory, is("Category"));

@@ -2,13 +2,13 @@ package wcci.acquisitionsinc;
 
 public class Review {
 
-	private int id;
+	private long id;
 	private String title;
 	private String imageUrl;
 	private String reviewCategory;
 	private String content;
 	
-	public Review(int id, String title, String imageUrl, String reviewCategory, String content) {
+	public Review(long id, String title, String imageUrl, String reviewCategory, String content) {
 		this.id = id;
 		this.title = title;
 		this.imageUrl = imageUrl;
@@ -18,7 +18,7 @@ public class Review {
 	}
 
 
-	public int getID() {
+	public long getId() {
 		return id;
 	}
 
