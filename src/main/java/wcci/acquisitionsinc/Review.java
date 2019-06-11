@@ -7,16 +7,15 @@ public class Review {
 	private String imageUrl;
 	private String reviewCategory;
 	private String content;
-	
+
 	public Review(long id, String title, String imageUrl, String reviewCategory, String content) {
 		this.id = id;
 		this.title = title;
 		this.imageUrl = imageUrl;
 		this.reviewCategory = reviewCategory;
 		this.content = content;
-		
-	}
 
+	}
 
 	public long getId() {
 		return id;
