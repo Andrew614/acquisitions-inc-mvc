@@ -4,20 +4,19 @@ public class Review {
 
 	private int id;
 	private String title;
-
-	public Review() {
-		this.title = "";
-	}
-
-	public Review(int id) {
-		this.id = id;
-		this.title = "";
-	}
-
-	public Review(int id, String title) {
+	private String imageUrl;
+	private String reviewCategory;
+	private String content;
+	
+	public Review(int id, String title, String imageUrl, String reviewCategory, String content) {
 		this.id = id;
 		this.title = title;
+		this.imageUrl = imageUrl;
+		this.reviewCategory = reviewCategory;
+		this.content = content;
+		
 	}
+
 
 	public int getID() {
 		return id;
@@ -28,15 +27,15 @@ public class Review {
 	}
 
 	public String getImageUrl() {
-		return "";
+		return imageUrl;
 	}
 
 	public String getReviewCategory() {
-		return "";
+		return reviewCategory;
 	}
 
 	public String getContent() {
-		return "";
+		return content;
 	}
 
 }
