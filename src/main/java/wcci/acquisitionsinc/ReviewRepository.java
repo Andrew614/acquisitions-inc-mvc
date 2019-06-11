@@ -1,8 +1,5 @@
 package wcci.acquisitionsinc;
 
-import java.awt.List;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 
 public class ReviewRepository {
@@ -19,8 +16,5 @@ public class ReviewRepository {
 	public HashMap<Long, Review> getAllReviews() {
 		return reviews;
 	}
-	
-	
-	
 
 }
