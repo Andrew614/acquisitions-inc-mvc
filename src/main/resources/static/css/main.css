@@ -1,24 +1,37 @@
-*{ 
-box-sizing: border-box;
-margin: 0;
-padding: 0;
+* { 
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-html 
-{
-font-size: 20px/1 sans-serif; 
+html {
+    font-size: 20px/1 sans-serif; 
 }
 
-.main-footer
-{
-display:flex;
-
-justify-content: center;
-
+.main-footer {
+    align-items: center;
+    border-top: .1rem solid black;
+    display:flex;
+    justify-content: center;
 }
 
-.main-header
-{
- background-color: crimson;   
+.main-header {
+    align-items: center;
+    background-color: crimson;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
 }
 
+
+/* Utility Class */
+
+.container {
+    margin-top: 0 auto;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-rows: 5rem auto 2rem;
+    min-height: 100vh;
+}

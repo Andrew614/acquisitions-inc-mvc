@@ -14,14 +14,14 @@
 <body>
     <div class="wrapper">
         <header class="main-header">
-            <h1 class="main-header__title">Acquisitions Inc. Review Repository</h1>
+            <h1 class="main-header__title">Acquisitions Inc. Reviews</h1>
         </header>
         <div class="container">
             <h2 th:each="review: ${reviews}">
                 <a th:text="${review.title}" th:href="|/reviews/${review.id}|">Review Title</a></h2>
         </div>
         <footer class="main-footer">
-            <small>&copy;2019</small>
+            <small class="main-footer__copy">&copy;2019</small>
         </footer>
     </div>
 </body>
