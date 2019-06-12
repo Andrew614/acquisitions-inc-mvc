@@ -1,0 +1,24 @@
+*{ 
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+}
+
+html 
+{
+font-size: 20px/1 sans-serif; 
+}
+
+.main-footer
+{
+display:flex;
+
+justify-content: center;
+
+}
+
+.main-header
+{
+ background-color: crimson;   
+}
+
