@@ -1,12 +1,12 @@
 package wcci.acquisitionsinc;
 
 import static org.hamcrest.CoreMatchers.is;
-import org.hamcrest.collection.IsMapContaining;
 import org.junit.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.hasItem;
 
-import java.util.HashMap;
+import java.util.Collection;
 
 import org.junit.Before;
 
@@ -41,10 +41,18 @@ public class ReviewRepositoryTest {
 		repository.addReview(underTest4);
 		repository.addReview(underTest);
 		repository.addReview(underTest2);
-		HashMap<Long, Review> allReviews = repository.getAllReviews();
-		assertThat(allReviews, IsMapContaining.hasEntry(1L, underTest));
-		assertThat(allReviews, IsMapContaining.hasEntry(2L, underTest2));
-		assertThat(allReviews, IsMapContaining.hasEntry(3L, underTest3));
-		assertThat(allReviews, IsMapContaining.hasEntry(4L, underTest4));
+		Collection<Review> allReviews = repository.getAllReviews();
+		assertThat(allReviews, hasItem(underTest));
+		assertThat(allReviews, hasItem(underTest2));
+		assertThat(allReviews, hasItem(underTest3));
+		assertThat(allReviews, hasItem(underTest4));
 	}
 }
+
+
+
+
+
+
+
+
