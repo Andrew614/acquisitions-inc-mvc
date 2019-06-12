@@ -1,9 +1,10 @@
 package wcci.acquisitionsinc;
 
+import java.util.Collection;
 import java.util.HashMap;
 
 public class ReviewRepository {
-	HashMap<Long, Review> reviews = new HashMap<Long, Review>();
+	private static HashMap<Long, Review> reviews = new HashMap<Long, Review>();
 
 	public void addReview(Review review) {
 		reviews.put(review.getId(), review);
@@ -13,8 +14,13 @@ public class ReviewRepository {
 		return reviews.get(id);
 	}
 
-	public HashMap<Long, Review> getAllReviews() {
-		return reviews;
+	public Collection<Review> getAllReviews() {
+		return reviews.values();
+	}
+
+	public void populateReviews() {
+		addReview(new Review(1, "title", "image", "category", "content"));
+		
 	}
 
 }
