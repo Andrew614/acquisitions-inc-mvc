@@ -1,17 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Acquisitions Inc.</title>
+    <link rel="stylesheet" href="/css/main.css">
 </head>
 
+
 <body>
-    <h1>Acquisitions Inc. Review Repository</h1>
-    <h2 th:each="review: ${reviews}">
-        <a th:text="${review.title}" th:href="|/reviews/${review.id}|">Review Title</a></h2>
+    <div class="wrapper">
+        <header class="main-header">
+            <h1 class="main-header__title">Acquisitions Inc. Review Repository</h1>
+        </header>
+        <div class="container">
+            <h2 th:each="review: ${reviews}">
+                <a th:text="${review.title}" th:href="|/reviews/${review.id}|">Review Title</a></h2>
+        </div>
+        <footer class="main-footer">
+            <small>&copy;2019</small>
+        </footer>
+    </div>
 </body>
 
 </html>
