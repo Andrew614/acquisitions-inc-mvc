@@ -9,66 +9,16 @@ import org.junit.Test;
 
 public class ReviewTest {
 
-	Review underTest = new Review(1, "title", "imageUrl", "Category", "Content");
+	Review underTest;
+	Review underTest2;
 
 	@Before
 	public void initialize() {
-		Review underTest = new Review(0, "", "", "", "");
-	}
-
-	@Test
-	public void reviewClassShouldExist() {
-		Review underTest = new Review(0, "", "", "", "");
-	}
-
-	@Test
-	public void reviewClassShouldHaveAnId() {
-		Review underTest = new Review(0, "", "", "", "");
-		long id = underTest.getId();
-		assertEquals(0, id);
-	}
-
-	@Test
-	public void reviewClass1ShouldHaveAnIdOf1() {
-		Review underTest = new Review(1, "", "", "", "");
-		long id = underTest.getId();
-		assertEquals(1, id);
-	}
-
-	@Test
-	public void reviewClassShouldHaveATitle() {
-		Review underTest = new Review(0, "", "", "", "");
-		String title = underTest.getTitle();
-		assertEquals("", title);
-	}
-
-	@Test
-	public void reviewClassShouldHaveATitleOfTitle() {
-		Review underTest = new Review(0, "title", "", "", "");
-		assertEquals("title", underTest.getTitle());
-	}
-
-	@Test
-	public void reviewClassShouldHaveImageUrl() {
-		String imageUrl = underTest.getImageUrl();
-		assertEquals("imageUrl", imageUrl);
-	}
-
-	@Test
-	public void shouldHaveReviewCategory() {
-		String reviewCategory = underTest.getReviewCategory();
-		assertEquals("Category", reviewCategory);
-	}
-
-	@Test
-	public void shouldHaveAContent() {
-		String content = underTest.getContent();
-		assertEquals("Content", content);
+		underTest = new Review(1, "Title", "www.github.io", "Category", "Content");
 	}
 
 	@Test
 	public void constructorShouldHaveAllAtributes() {
-		Review underTest = new Review(1, "Title", "www.github.io", "Category", "Content");
 		long underTestID = underTest.getId();
 		String underTestTitle = underTest.getTitle();
 		String underTestImageUrl = underTest.getImageUrl();
@@ -79,7 +29,6 @@ public class ReviewTest {
 		assertThat(underTestImageUrl, is("www.github.io"));
 		assertThat(underTestCategory, is("Category"));
 		assertThat(underTestContent, is("Content"));
-
 	}
 
 }
