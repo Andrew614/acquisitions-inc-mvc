@@ -50,8 +50,8 @@ public class ReviewRepositoryTest {
 	@Test
 	public void constructorShouldPopulateReviewsWithTwoReviews() {
 		Collection<Review> allReviews = underTest.getAllReviews();
-		//assert that the collection contains the following reviews:
-		//new Review(1, "title", "image", "category", "content");
-		//new Review(2, "title2", "image2", "category2", "content2");
+		Review default1 = new Review(1, "title", "image", "category", "content");
+		Review default2 = new Review(2, "title2", "image2", "category2", "content2");
+		assertThat(allReviews, containsInAnyOrder(default1, default2));
 	}
 }
