@@ -8,21 +8,20 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/reviews")
+@RequestMapping({"/reviews","/reviews/"})
 public class ReviewController {
 	
 	@Resource
 	ReviewRepository reviewRepository;
 
-	@RequestMapping("/")
+	@RequestMapping({"/", ""})
 	public String getReviews(Model model) {
-		reviewRepository.populateReviews();
 		model.addAttribute("reviews", reviewRepository.getAllReviews());
 		return "reviews";
 
 	}
 
-	@RequestMapping("/{id}")
+	@RequestMapping({"/{id}", "/{id}/"})
 	public String getReview(@PathVariable("id") long id, Model model) {
 		model.addAttribute("review", reviewRepository.getReview(id));
 		return "review";
