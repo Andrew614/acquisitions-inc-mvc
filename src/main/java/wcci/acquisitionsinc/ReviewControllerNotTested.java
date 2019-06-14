@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/reviews")
-public class ReviewController {
+public class ReviewControllerNotTested {
 	
 	@Resource
 	ReviewRepository reviewRepository;
