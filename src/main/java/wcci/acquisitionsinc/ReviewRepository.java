@@ -25,7 +25,7 @@ public class ReviewRepository {
 		return reviews.values();
 	}
 
-	public void populateReviews() {
+	private void populateReviews() {
 		addReview(new Review(1, "title", "image", "category", "content"));
 		addReview(new Review(2, "title2", "image2", "category2", "content2"));
 	}
