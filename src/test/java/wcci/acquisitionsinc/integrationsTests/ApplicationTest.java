@@ -16,6 +16,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.ResultActions;
 
 import wcci.acquisitionsinc.ReviewRepository;
 
@@ -23,23 +24,23 @@ import wcci.acquisitionsinc.ReviewRepository;
 @SpringBootTest
 @AutoConfigureMockMvc
 public class ApplicationTest {
+	
+	private void assertThatStatusIsOk(String mapping) throws Exception {
+		ResultActions performMockGetRequest = this.mockMvc.perform(get(mapping));
+		ResultActions response = performMockGetRequest.andDo(print());
+		response.andExpect(status().isOk());
+	}
 
 	@Autowired
 	private MockMvc mockMvc;
-	
+		
 	@Test
 	public void shouldReviewsStatusBeOk() throws Exception {
-		this.mockMvc.perform(get("/reviews")).andDo(print()).andExpect(status().isOk());
+		assertThatStatusIsOk("/reviews");
 	}
-	
+
 	@Test
 	public void shouldReviewStatusBeOk() throws Exception {
-		this.mockMvc.perform(get("/reviews/1")).andDo(print()).andExpect(status().isOk());
+		assertThatStatusIsOk("/reviews/1");
 	}
-	
-	
-	
-	
-	
-	
 }
