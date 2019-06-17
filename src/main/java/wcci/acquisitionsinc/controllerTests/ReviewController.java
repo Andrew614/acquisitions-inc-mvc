@@ -6,8 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-import wcci.acquisitionsinc.Review;
 import wcci.acquisitionsinc.ReviewRepository;
 
 @Controller
@@ -17,7 +17,7 @@ public class ReviewController {
 	ReviewRepository reviewRepo;
 	
 	@RequestMapping({"/reviews/","/reviews"})
-	public String getReviews(Model model) {
+	public @ResponseBody String getReviews(Model model) {
 		model.addAttribute("reviews", reviewRepo.getAllReviews());
 		return "reviews";
 	}
