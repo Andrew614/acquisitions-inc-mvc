@@ -26,10 +26,10 @@ public class WebLayerTest {
 		this.mockMvc.perform(get("/reviews")).andDo(print()).andExpect(status().isOk());
 	}
 	
-	@Test
-	public void shouldReturnReviewPage() throws Exception {
-		this.mockMvc.perform(get("/reviews/1")).andDo(print()).andExpect(status().isOk());
-	}
+//	@Test
+//	public void shouldReturnReviewPage() throws Exception {
+//		this.mockMvc.perform(get("/reviews/1")).andDo(print()).andExpect(status().isOk());
+//	}
 	
 
 	
