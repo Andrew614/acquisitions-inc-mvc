@@ -1,4 +1,4 @@
-package wcci.acquisitionsinc.controllerTests;
+package wcci.acquisitionsinc;
 
 import javax.annotation.Resource;
 
@@ -7,8 +7,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-
-import wcci.acquisitionsinc.ReviewRepository;
 
 @Controller
 public class ReviewController {
@@ -22,8 +20,8 @@ public class ReviewController {
 		return "reviews";
 	}
 	
-	@RequestMapping({"/reviews/1","/reviews/1/"})
-	public String getReview(long id, Model model) {
+	@RequestMapping({"/reviews/{id}","/reviews/{id}/"})
+	public @ResponseBody String getReview(@PathVariable("id") long id, Model model) {
 		model.addAttribute("review", reviewRepo.getReview(id));
 		return "review";
 	}
