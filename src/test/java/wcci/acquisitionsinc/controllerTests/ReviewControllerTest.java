@@ -1,18 +1,12 @@
 package wcci.acquisitionsinc.controllerTests;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.contains;
-import static org.hamcrest.Matchers.containsInAnyOrder;
-import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.*;
 import static org.mockito.Mockito.verify;
 import static org.mockito.MockitoAnnotations.initMocks;
 
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.Collections;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
@@ -34,6 +28,7 @@ public class ReviewControllerTest {
 
 	Review review1;
 	Review review2;
+	Review review50;
 
 	@Before
 	public void initalizer() {
@@ -63,7 +58,7 @@ public class ReviewControllerTest {
 	}
 
 	@Test
-	public void shouldAddReview1ToModel() {
+	public void modelShouldContainReview1() {
 		Mockito.when(repo.getReview(1)).thenReturn(review1);
 		underTest.getReview(1, model);
 		verify(model).addAttribute("review", review1);
@@ -71,9 +66,16 @@ public class ReviewControllerTest {
 	}
 	
 	@Test
-	public void shouldAddReview2ToModel() {
+	public void modelShouldContainReview2() {
 		Mockito.when(repo.getReview(2)).thenReturn(review2);
 		underTest.getReview(2, model);
 		verify(model).addAttribute("review", review2);
+	}
+	@Test
+	public void shouldAddReview50() {
+		review50 = new Review(50, "title50", "image50", "category50", "content50");
+		underTest.addReview(review50);
+		String obtainedReview = underTest.getReview(50, model);
+		assertThat(obtainedReview, is("review"));
 	}
 }

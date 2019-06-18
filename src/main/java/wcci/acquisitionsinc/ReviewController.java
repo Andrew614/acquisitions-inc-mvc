@@ -6,7 +6,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class ReviewController {
@@ -15,15 +14,20 @@ public class ReviewController {
 	ReviewRepository reviewRepo;
 	
 	@RequestMapping({"/reviews/","/reviews"})
-	public @ResponseBody String getReviews(Model model) {
+	public String getReviews(Model model) {
 		model.addAttribute("reviews", reviewRepo.getAllReviews());
 		return "reviews";
 	}
 	
 	@RequestMapping({"/reviews/{id}","/reviews/{id}/"})
-	public @ResponseBody String getReview(@PathVariable("id") long id, Model model) {
+	public String getReview(@PathVariable("id") long id, Model model) {
 		model.addAttribute("review", reviewRepo.getReview(id));
 		return "review";
+	}
+
+	public void addReview(Review review) {
+		reviewRepo.addReview(review);
+		
 	}
 
 }
