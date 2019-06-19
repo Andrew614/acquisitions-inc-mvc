@@ -1,18 +1,29 @@
 package wcci.acquisitionsinc;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Review {
 
+	@Id
+	@GeneratedValue
 	private long id;
+
 	private String title;
 	private String imageUrl;
-	private String reviewCategory;
+	private String category;
 	private String content;
 
-	public Review(long id, String title, String imageUrl, String reviewCategory, String content) {
-		this.id = id;
+	protected Review() {
+
+	}
+
+	public Review(String title, String imageUrl, String category, String content) {
 		this.title = title;
 		this.imageUrl = imageUrl;
-		this.reviewCategory = reviewCategory;
+		this.category = category;
 		this.content = content;
 
 	}
@@ -29,8 +40,8 @@ public class Review {
 		return imageUrl;
 	}
 
-	public String getReviewCategory() {
-		return reviewCategory;
+	public String getCategory() {
+		return category;
 	}
 
 	public String getContent() {
@@ -44,7 +55,7 @@ public class Review {
 		result = prime * result + ((content == null) ? 0 : content.hashCode());
 		result = prime * result + (int) (id ^ (id >>> 32));
 		result = prime * result + ((imageUrl == null) ? 0 : imageUrl.hashCode());
-		result = prime * result + ((reviewCategory == null) ? 0 : reviewCategory.hashCode());
+		result = prime * result + ((category == null) ? 0 : category.hashCode());
 		result = prime * result + ((title == null) ? 0 : title.hashCode());
 		return result;
 	}
@@ -70,10 +81,10 @@ public class Review {
 				return false;
 		} else if (!imageUrl.equals(other.imageUrl))
 			return false;
-		if (reviewCategory == null) {
-			if (other.reviewCategory != null)
+		if (category == null) {
+			if (other.category != null)
 				return false;
-		} else if (!reviewCategory.equals(other.reviewCategory))
+		} else if (!category.equals(other.category))
 			return false;
 		if (title == null) {
 			if (other.title != null)

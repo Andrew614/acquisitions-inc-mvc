@@ -22,7 +22,7 @@ public class ReviewTest {
 		long underTestID = underTest.getId();
 		String underTestTitle = underTest.getTitle();
 		String underTestImageUrl = underTest.getImageUrl();
-		String underTestCategory = underTest.getReviewCategory();
+		String underTestCategory = underTest.getCategory();
 		String underTestContent = underTest.getContent();
 		assertEquals(1, underTestID);
 		assertThat(underTestTitle, is("Title"));
