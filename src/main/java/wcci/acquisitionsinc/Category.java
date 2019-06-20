@@ -1,11 +1,10 @@
+package wcci.acquisitionsinc;
 import java.util.Collection;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-
-import wcci.acquisitionsinc.Review;
 
 @Entity
 public class Category {
