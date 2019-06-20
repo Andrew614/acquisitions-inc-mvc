@@ -1,3 +1,4 @@
+package wcci.acquisitionsinc;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
@@ -40,20 +41,14 @@ public class EntityMappingsTest {
 		assertThat(foundReview.getTitle(), is("review50"));
 	}
 
-//	@Test
-//	public void shouldSaveAndLoadCategory() {
-//		Review review50 = new Review("review50", "", corn, "");
-//		Review review51 = new Review("review51", "", corn, "");
-//		Review review52 = new Review("review52", "", bean, "");
-//		Review review53 = new Review("review53", "", tator, "");
-//		categoryRepo.save(review50);
-//		categoryRepo.save(review51);
-//		categoryRepo.save(review52);
-//		categoryRepo.save(review53);
-//		entityManager.flush();
-//		entityManager.clear();
-//		
-//		Review findReview = reviewRepo.findById(categoryRepo.)
-//	}
+	@Test
+	public void shouldSaveAndLoadCategory() {
+		Category category = new Category("food");
+		entityManager.persist(category);
+		entityManager.flush();
+		
+		Category foundCategory = categoryRepo.findById(category.getId()).get();
+		assertThat(foundCategory.getName(), is("food"));
+	}
 
 }
