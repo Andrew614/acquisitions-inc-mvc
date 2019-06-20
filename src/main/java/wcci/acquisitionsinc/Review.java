@@ -29,7 +29,7 @@ public class Review {
 		this.title = title;
 		this.imageUrl = imageUrl;
 		this.content = content;
-
+		this.category = category;
 	}
 
 	public long getId() {

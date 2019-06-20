@@ -29,8 +29,8 @@ public class EntityMappingsTest {
 
 	@Test
 	public void shouldSaveandLoadReview() {
-		Category food = new Category("food");
-		Review review50 = new Review("review50", "", food, "");
+		Category category = new Category("food");
+		Review review50 = new Review("review50", "", category, "");
 		entityManager.persist(review50);
 		entityManager.flush();
 		Review foundReview = reviewRepo.findById(review50.getId()).get();
