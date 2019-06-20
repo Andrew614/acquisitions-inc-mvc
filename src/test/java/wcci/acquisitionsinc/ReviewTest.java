@@ -11,10 +11,12 @@ public class ReviewTest {
 
 	Review underTest;
 	Review underTest2;
+	Category category;
 
 	@Before
 	public void initialize() {
-		underTest = new Review(1, "Title", "www.github.io", "Category", "Content");
+		category = new Category("food");
+		underTest = new Review("Title", "www.github.io", category, "Content");
 	}
 
 	@Test
@@ -22,12 +24,10 @@ public class ReviewTest {
 		long underTestID = underTest.getId();
 		String underTestTitle = underTest.getTitle();
 		String underTestImageUrl = underTest.getImageUrl();
-		String underTestCategory = underTest.getCategory();
 		String underTestContent = underTest.getContent();
 		assertEquals(1, underTestID);
 		assertThat(underTestTitle, is("Title"));
 		assertThat(underTestImageUrl, is("www.github.io"));
-		assertThat(underTestCategory, is("Category"));
 		assertThat(underTestContent, is("Content"));
 	}
 

@@ -10,6 +10,8 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ReviewRepository extends CrudRepository<Review, Long> {
+
+	
 //	private static HashMap<Long, Review> reviews = new HashMap<Long, Review>();
 
 //	public ReviewRepository() {
