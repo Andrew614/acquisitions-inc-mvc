@@ -1,8 +1,11 @@
 package wcci.acquisitionsinc;
 
+import java.util.Locale.Category;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Review {
@@ -11,19 +14,20 @@ public class Review {
 	@GeneratedValue
 	private long id;
 
+	@ManyToOne
+	private Category category;
+
 	private String title;
 	private String imageUrl;
-	private String category;
 	private String content;
 
 	protected Review() {
 
 	}
 
-	public Review(String title, String imageUrl, String category, String content) {
+	public Review(String title, String imageUrl, Category category, String content) {
 		this.title = title;
 		this.imageUrl = imageUrl;
-		this.category = category;
 		this.content = content;
 
 	}
@@ -38,10 +42,6 @@ public class Review {
 
 	public String getImageUrl() {
 		return imageUrl;
-	}
-
-	public String getCategory() {
-		return category;
 	}
 
 	public String getContent() {

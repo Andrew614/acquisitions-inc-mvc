@@ -20,7 +20,8 @@ public class EntityMappingsTest {
 
 	@Autowired
 	private ReviewRepository reviewRepo;
-
+	
+	@Autowired
 	private CategoryRepository categoryRepo;
 
 //	@Autowired
@@ -28,7 +29,8 @@ public class EntityMappingsTest {
 
 	@Test
 	public void shouldSaveandLoadReview() {
-		Review review50 = new Review("review50", "", "", "");
+		Category food = new Category("food");
+		Review review50 = new Review("review50", "", food, "");
 		entityManager.persist(review50);
 		entityManager.flush();
 		Review foundReview = reviewRepo.findById(review50.getId()).get();
@@ -37,14 +39,18 @@ public class EntityMappingsTest {
 
 	@Test
 	public void shouldSaveAndLoadCategory() {
-		Review review50 = new Review("review50", "", "corn", "");
-		Review review51 = new Review("review51", "", "corn", "");
-		Review review52 = new Review("review52", "", "bean", "");
-		Review review53 = new Review("review53", "", "tator", "");
+		Review review50 = new Review("review50", "", corn, "");
+		Review review51 = new Review("review51", "", corn, "");
+		Review review52 = new Review("review52", "", bean, "");
+		Review review53 = new Review("review53", "", tator, "");
 		categoryRepo.save(review50);
 		categoryRepo.save(review51);
 		categoryRepo.save(review52);
 		categoryRepo.save(review53);
+		entityManager.flush();
+		entityManager.clear();
+		
+		Review findReview = reviewRepo.findById(categoryRepo.)
 	}
 
 }
