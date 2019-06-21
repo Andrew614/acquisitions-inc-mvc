@@ -8,6 +8,7 @@ import javax.persistence.OneToMany;
 
 @Entity
 public class Category {
+	
 	private String name;
 
 	@Id
