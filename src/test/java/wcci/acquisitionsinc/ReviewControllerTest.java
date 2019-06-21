@@ -1,4 +1,4 @@
-package wcci.acquisitionsinc.controllerTests;
+package wcci.acquisitionsinc;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
@@ -25,7 +25,7 @@ public class ReviewControllerTest {
 	
 	private ReviewController underTest;
 	@Mock
-	private ReviewRepository repo;
+	private ReviewRepository reviewRepo;
 	
 	@Mock
 	private Review reviewOne;
@@ -59,7 +59,7 @@ public class ReviewControllerTest {
 	@Test
 	public void shouldHaveReviewsInModel() {
 		Collection<Review> reviews = Arrays.asList(reviewOne, reviewTwo);
-		Mockito.when(repo.findAll()).thenReturn(reviews);
+		Mockito.when(reviewRepo.findAll()).thenReturn(reviews);
 		underTest.findAll(model);
 		verify(model).addAttribute("reviewsAttribute", reviews);
 	}

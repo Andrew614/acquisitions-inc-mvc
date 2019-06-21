@@ -5,13 +5,14 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class ReviewController {
 
 	@Resource
-	ReviewRepository reviewRepo;
+	private ReviewRepository reviewRepo;
 
 	@RequestMapping({ "/all-reviews/", "/all-reviews" })
 	public String findAll(Model model) {
@@ -19,15 +20,15 @@ public class ReviewController {
 		return "reviewsTemplate";
 	}
 
-	@RequestMapping({ "/reviews/{id}", "/reviews/{id}/" })
+	@RequestMapping({ "/all-reviews/{id}", "/all-reviews/{id}/" })
 	public String getReview (@PathVariable Long id, Model model) {
-		model.addAttribute("review", reviewRepo.findById(id).get());
-		return "review";
+		model.addAttribute("reviewAttribute", reviewRepo.findById(id).get());
+		return "reviewTemplate";
 	}
 
-	@PostMapping("/add-campus")
-	public String addReview(Review review, Category category) {
-		
-	}
+//	@PostMapping("/add-review")
+//	public String addReview(Review review, Category category) {
+//		
+//	}
 
 }

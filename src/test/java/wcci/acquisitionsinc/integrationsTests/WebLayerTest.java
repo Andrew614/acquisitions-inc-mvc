@@ -20,6 +20,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
 import wcci.acquisitionsinc.Category;
+import wcci.acquisitionsinc.CategoryRepository;
 import wcci.acquisitionsinc.Review;
 import wcci.acquisitionsinc.ReviewRepository;
 
@@ -34,6 +35,9 @@ public class WebLayerTest {
 	@MockBean
 	private ReviewRepository reviewRepo;
 	
+	@MockBean
+	private CategoryRepository categoryRepo;
+	
 	@Mock
 	private Category category;
 	
@@ -44,22 +48,24 @@ public class WebLayerTest {
 	private Review review2;
 	
 	@Test
-	public void shouldReturnReviewsPage() throws Exception {
-		this.mockMvc.perform(get("/reviews")).andDo(print()).andExpect(status().isOk());
+	public void shouldReturnAllReviewsPage() throws Exception {
+		this.mockMvc.perform(get("/all-reviews")).andDo(print()).andExpect(status().isOk());
 	}
 	
 	@Test
 	public void shouldReturnReview1Page() throws Exception {
 		Optional<Review> reviewOptional = Optional.of(review);
 		when(reviewRepo.findById(1L)).thenReturn(reviewOptional);
-		this.mockMvc.perform(get("/reviews/1")).andDo(print()).andExpect(status().isOk());
+		when(review.getCategory()).thenReturn(category);
+		this.mockMvc.perform(get("/all-reviews/1")).andDo(print()).andExpect(status().isOk());
 	}
 	
 	@Test
 	public void shouldReturnReview2Page() throws Exception {
 		Optional<Review> reviewOptional = Optional.of(review2);
 		when(reviewRepo.findById(2L)).thenReturn(reviewOptional);
-		this.mockMvc.perform(get("/reviews/2")).andDo(print()).andExpect(status().isOk());
+		when(review.getCategory()).thenReturn(category);
+		this.mockMvc.perform(get("/all-reviews/2")).andDo(print()).andExpect(status().isOk());
 	}
 	
 	@Test
@@ -68,6 +74,11 @@ public class WebLayerTest {
 		
 		mockMvc.perform(post("/add-review").contentType(MediaType.APPLICATION_JSON).content(toJson(reviewToAdd)))
 			.andExpect(status().is3xxRedirection());
+	}
+	
+	@Test
+	public void shouldReturnAllCategoriesPage() throws Exception {
+		this.mockMvc.perform(get("/all-categories")).andDo(print()).andExpect(status().isOk());
 	}
 
 	private String toJson(Review reviewToAdd) {

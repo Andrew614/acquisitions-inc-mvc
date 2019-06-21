@@ -13,7 +13,7 @@ public class Review {
 	private long id;
 
 	@ManyToOne
-	private Category category;
+	private Category category;//Category
 
 	private String title;
 	private String imageUrl;
@@ -44,6 +44,10 @@ public class Review {
 
 	public String getContent() {
 		return content;
+	}
+	
+	public Category getCategory() {
+		return category;
 	}
 
 	@Override
