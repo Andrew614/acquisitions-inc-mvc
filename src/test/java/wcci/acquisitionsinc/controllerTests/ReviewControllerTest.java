@@ -14,6 +14,7 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.ui.Model;
 
+import wcci.acquisitionsinc.Category;
 import wcci.acquisitionsinc.Review;
 import wcci.acquisitionsinc.ReviewController;
 import wcci.acquisitionsinc.ReviewRepository;
@@ -36,7 +37,7 @@ public class ReviewControllerTest {
 	
 	@Mock
 	Model model;
-
+	
 
 	@Before
 	public void setUp() {
@@ -56,12 +57,15 @@ public class ReviewControllerTest {
 	}
 
 	@Test
-	public void shouldAddReviewsToModel() {
+	public void shouldHaveReviewsInModel() {
 		Collection<Review> reviews = Arrays.asList(reviewOne, reviewTwo);
 		Mockito.when(repo.findAll()).thenReturn(reviews);
 		underTest.findAll(model);
 		verify(model).addAttribute("reviewsAttribute", reviews);
 	}
+	
+	
+	
 
 
 }

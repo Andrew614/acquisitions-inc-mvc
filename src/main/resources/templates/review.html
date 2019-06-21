@@ -1,33 +1,35 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Acquisitions Inc.</title>
-    <link rel="stylesheet" href="/css/main.css">
-</head>
+    <link rel="stylesheet" href="/css/main.css" />
+  </head>
 
-<body>
+  <body>
     <div class="wrapper">
-        <header class="main-header">
-            <h1 class="main-header__title">Acquisitions Inc. Review</h1>
-        </header>
-        <div class="container">
-            <h2 th:text="${review.title}">Review Title</h2>
-            <img src="" alt="Review Image">
-            <h3 th:text="${review.reviewCategory}">Category</h3>
-            <p th:text="${review.content}">Content--- Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque,
-                aliquam, numquam architecto eius
-                dicta ipsam labore ad illum dolorum, quas quaerat quod aspernatur. Quos reprehenderit, voluptates
-                perspiciatis illum sint natus.</p>
-            <a href="/reviews/">Back to Reviews</a>
-        </div> <!--/.container-->
-        <footer class="main-footer">
-            <small class="main-footer__copy">&copy;2019</small>
-        </footer>    
-    </div> <!--/.wrapper-->
-</body>
-
+      <header class="main-header">
+        <h1 class="main-header__title">Acquisitions Inc. Review</h1>
+      </header>
+      <div class="container">
+        <h2 th:text="${review.title}">Review Title</h2>
+        <img src="" alt="Review Image" />
+        <h3 th:text="${category.category}">Category</h3>
+        <p th:text="${review.content}">
+          Content--- Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Neque, aliquam, numquam architecto eius dicta ipsam labore ad illum
+          dolorum, quas quaerat quod aspernatur. Quos reprehenderit, voluptates
+          perspiciatis illum sint natus.
+        </p>
+        <a href="/reviews/">Back to Reviews</a>
+      </div>
+      <!--/.container-->
+      <footer class="main-footer">
+        <small class="main-footer__copy">&copy;2019</small>
+      </footer>
+    </div>
+    <!--/.wrapper-->
+  </body>
 </html>
