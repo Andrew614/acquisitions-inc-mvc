@@ -64,7 +64,7 @@ public class WebLayerTest {
 	public void shouldReturnReview2Page() throws Exception {
 		Optional<Review> reviewOptional = Optional.of(review2);
 		when(reviewRepo.findById(2L)).thenReturn(reviewOptional);
-		when(review.getCategory()).thenReturn(category);
+		when(review2.getCategory()).thenReturn(category);
 		this.mockMvc.perform(get("/all-reviews/2")).andDo(print()).andExpect(status().isOk());
 	}
 	
