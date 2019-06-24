@@ -32,7 +32,8 @@ public class EntityMappingsTest {
 	@Test
 	public void shouldSaveandLoadReview() {
 		Category category = new Category("food");
-		Review review50 = new Review("review50", "", category, "");
+		ReviewTag reviewTag = new ReviewTag("fruit");
+		Review review50 = new Review("review50", "", category, reviewTag, "");
 		entityManager.persist(category);
 		entityManager.persist(review50);
 		entityManager.flush();

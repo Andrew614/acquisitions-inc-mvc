@@ -12,11 +12,13 @@ public class ReviewTest {
 	Review underTest;
 	Review underTest2;
 	Category category;
+	ReviewTag reviewTag;
 
 	@Before
 	public void initialize() {
 		category = new Category("food");
-		underTest = new Review("Title", "www.github.io", category, "Content");
+		reviewTag = new ReviewTag("fruit");
+		underTest = new Review("Title", "www.github.io", category, reviewTag, "Content");
 	}
 
 	@Test

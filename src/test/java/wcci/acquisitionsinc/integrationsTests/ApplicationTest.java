@@ -30,11 +30,11 @@ public class ApplicationTest {
 		
 	@Test
 	public void shouldReviewsStatusBeOk() throws Exception {
-		assertThatStatusIsOk("/reviews");
+		assertThatStatusIsOk("/all-reviews");
 	}
 
 	@Test
 	public void shouldReviewStatusBeOk() throws Exception {
-		assertThatStatusIsOk("/reviews/1");
+		assertThatStatusIsOk("/all-reviews/1");
 	}
 }

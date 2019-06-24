@@ -19,19 +19,25 @@ public class Review {
 	@ManyToMany
 	private ReviewTag reviewTag;
 
+
 	private String title;
 	private String imageUrl;
 	private String content;
+
+	public ReviewTag getReviewTag() {
+		return reviewTag;
+	}
 
 	protected Review() {
 
 	}
 
-	public Review(String title, String imageUrl, Category category, String content) {
+	public Review(String title, String imageUrl, Category category, ReviewTag reviewTag, String content) {
 		this.title = title;
 		this.imageUrl = imageUrl;
 		this.content = content;
 		this.category = category;
+		this.reviewTag = reviewTag;
 	}
 
 	public long getId() {

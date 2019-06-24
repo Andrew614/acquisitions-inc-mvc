@@ -2,10 +2,12 @@ package wcci.acquisitionsinc;
 import java.util.Collection;
 import java.util.HashMap;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
+@Entity
 public class ReviewTag {
 
 	private String name;
@@ -31,6 +33,10 @@ public class ReviewTag {
 
 	protected ReviewTag() {
 
+	}
+	
+	public ReviewTag(String name) {
+		this.name = name;
 	}
 
 	@Override
