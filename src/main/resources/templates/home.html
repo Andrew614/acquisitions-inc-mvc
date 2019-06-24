@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Acquisitions Inc.</title>
+    <link rel="stylesheet" href="/css/main.css" />
+</head>
+
+<body>
+    <header class="main-header">
+        <h1 class="main-header__title">Acquisitions Inc.</h1>
+    </header>
+    <form class="review-form" action="/reviews/add" method="POST">
+        <ul class="review-form__list">
+            <label class="review-form__field">ID: <input type="text" name="id" placeholder="Enter ID here" /></label>
+            <label class="review-form__field">Title:
+                <input type="text" name="title" placeholder="Enter Title here" /></label>
+            <label class="review-form__field">Category:
+                <input type="text" name="category" placeholder="Enter Category here" /></label>
+            <label class="review-form__field">Tags:
+                <input type="text" name="reviewTag" placeholder="Enter Tags here" /></label>
+            <label class="review-form__field">Image Url:
+                <input type="text" name="imageUrl" placeholder="Enter Image Url here" /></label>
+            <label class="review-form__field review-form__content">Content:
+                <textarea type="text" maxlength="1000" name="content" placeholder="Enter Content here"><textarea</label>
+          <button class="review-form__button" type="submit">Submit</button>
+        </ul>
+      </form>
+      <footer class="main-footer">
+        <small class="main-footer__copy">&copy;2019</small>
+      </footer>
+</body>
+
+</html>
