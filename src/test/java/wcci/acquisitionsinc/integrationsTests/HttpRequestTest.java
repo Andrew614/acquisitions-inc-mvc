@@ -28,21 +28,28 @@ public class HttpRequestTest {
 	private void assertThatEndPointIsOk(String endpoint) {
 		ResponseEntity<String> response = restTemplate.getForEntity(endpoint, String.class);
 		HttpStatus status = response.getStatusCode();
-		assertThat(status, is(HttpStatus.OK));
+		status.is2xxSuccessful();
+//		assertThat(status, is(HttpStatus.OK));
 	}
 	
 	@Test
 	public void reviewsEndPointIsOk() {
-		assertThatEndPointIsOk("/reviews");
+		assertThatEndPointIsOk("/all-reviews");
 	}
 	
 	@Test 
 	public void reviews1EndPointIsOk() {
-		assertThatEndPointIsOk("/reviews/1");
+		assertThatEndPointIsOk("/all-reviews/1");
 	}
 	
 	@Test	
 	public void reviews2EndPointIsOk() {
-		assertThatEndPointIsOk("/reviews/2");
+		assertThatEndPointIsOk("/all-reviews/2");
+	}
+	@Test
+	public void addReviewsEndPointIsRedirect() {
+		ResponseEntity<String> response = restTemplate.getForEntity("/add-review", String.class);
+		HttpStatus status = response.getStatusCode();
+		status.is3xxRedirection();
 	}
 }
