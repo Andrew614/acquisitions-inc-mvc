@@ -3,6 +3,7 @@ package wcci.acquisitionsinc;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -13,7 +14,10 @@ public class Review {
 	private long id;
 
 	@ManyToOne
-	private Category category;//Category
+	private Category category;
+	
+	@ManyToMany
+	private ReviewTag reviewTag;
 
 	private String title;
 	private String imageUrl;
