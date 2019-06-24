@@ -9,18 +9,19 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
+@RequestMapping({ "/all-reviews/", "/all-reviews" })
 public class ReviewController {
 
 	@Resource
 	private ReviewRepository reviewRepo;
 
-	@RequestMapping({ "/all-reviews/", "/all-reviews" })
+	@RequestMapping({"", "/"})
 	public String findAll(Model model) {
 		model.addAttribute("reviewsAttribute", reviewRepo.findAll());
 		return "reviewsTemplate";
 	}
 
-	@RequestMapping({ "/all-reviews/{id}", "/all-reviews/{id}/" })
+	@RequestMapping({ "/{id}", "/{id}/" })
 	public String getReview (@PathVariable Long id, Model model) {
 		model.addAttribute("reviewAttribute", reviewRepo.findById(id).get());
 		return "reviewTemplate";
