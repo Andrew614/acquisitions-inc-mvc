@@ -26,9 +26,12 @@ public class ReviewController {
 		return "reviewTemplate";
 	}
 
-//	@PostMapping("/add-review")
-//	public String addReview(Review review, Category category) {
-//		
-//	}
+	@PostMapping({"/add-review","/add-review/"}) 
+	public String addReview(String title, String imageUrl, Category category, String content) {
+		return "redirect:/all-reviews";
+		
+		
+	}
+	
 
 }

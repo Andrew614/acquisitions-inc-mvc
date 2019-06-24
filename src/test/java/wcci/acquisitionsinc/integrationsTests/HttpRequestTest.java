@@ -45,4 +45,10 @@ public class HttpRequestTest {
 	public void reviews2EndPointIsOk() {
 		assertThatEndPointIsOk("/reviews/2");
 	}
+	@Test
+	public void addReviewsEndPointIsRedirect() {
+		ResponseEntity<String> response = restTemplate.getForEntity("/add-review", String.class);
+		HttpStatus status = response.getStatusCode();
+		assertThat(status.is3xxRedirection());
+	}
 }
