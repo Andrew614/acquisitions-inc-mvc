@@ -11,6 +11,9 @@ public class Initializer implements CommandLineRunner {
 	
 	@Autowired
 	private CategoryRepository categoryRepo;
+	
+	@Autowired
+	private ReviewTagRepository reviewTagRepo;
 
 	@Override
 	public void run(String... args) throws Exception {
@@ -27,6 +30,8 @@ public class Initializer implements CommandLineRunner {
 		categoryRepo.save(category2);
 		reviewRepo.save(review);
 		reviewRepo.save(review2);
+		reviewTagRepo.save(reviewTag1);
+		reviewTagRepo.save(reviewTag2);
 
 	}
 
