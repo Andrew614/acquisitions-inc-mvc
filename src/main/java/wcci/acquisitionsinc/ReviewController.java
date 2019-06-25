@@ -22,13 +22,13 @@ public class ReviewController {
 	}
 
 	@RequestMapping({ "/{id}", "/{id}/" })
-	public String getReview (@PathVariable Long id, Model model) {
+	public String getReview (@PathVariable("id") Long id, Model model) {
 		model.addAttribute("reviewAttribute", reviewRepo.findById(id).get());
 		return "reviewTemplate";
 	}
 
 	@PostMapping({"/add-review","/add-review/"}) 
-	public String addReview(String title, String imageUrl, Category category, String content) {
+	public String addReview(String title, String imageUrl, Category category, ReviewTag reviewTag, String content) {
 		return "redirect:/all-reviews";
 		
 		

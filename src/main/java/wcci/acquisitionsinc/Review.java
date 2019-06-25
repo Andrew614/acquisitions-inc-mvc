@@ -1,5 +1,8 @@
 package wcci.acquisitionsinc;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -17,27 +20,30 @@ public class Review {
 	private Category category;
 	
 	@ManyToMany
-	private ReviewTag reviewTag;
+	private List<ReviewTag> reviewTags;
 
 
 	private String title;
 	private String imageUrl;
 	private String content;
 
-	public ReviewTag getReviewTag() {
-		return reviewTag;
+	public List<ReviewTag> getReviewTags() {
+		return reviewTags;
 	}
 
 	protected Review() {
 
 	}
 
-	public Review(String title, String imageUrl, Category category, ReviewTag reviewTag, String content) {
+	public Review(String title, String imageUrl, Category category, String content, ReviewTag... reviewTags) {
 		this.title = title;
 		this.imageUrl = imageUrl;
 		this.content = content;
 		this.category = category;
-		this.reviewTag = reviewTag;
+		this.reviewTags = new ArrayList<ReviewTag>();
+		for (ReviewTag reviewTag : reviewTags) {
+			this.reviewTags.add(reviewTag);
+		}
 	}
 
 	public long getId() {
