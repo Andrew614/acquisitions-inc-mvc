@@ -33,9 +33,10 @@ public class EntityMappingsTest {
 	public void shouldSaveandLoadReview() {
 		Category category = new Category("food");
 		ReviewTag reviewTag = new ReviewTag("fruit");
-		Review review50 = new Review("review50", "", category, reviewTag, "");
+		Review review50 = new Review("review50", "", category, "", reviewTag);
 		entityManager.persist(category);
 		entityManager.persist(review50);
+		entityManager.persist(reviewTag);
 		entityManager.flush();
 		Review foundReview = reviewRepo.findById(review50.getId()).get();
 		assertThat(foundReview.getTitle(), is("review50"));

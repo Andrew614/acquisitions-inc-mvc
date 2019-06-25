@@ -18,7 +18,7 @@ public class ReviewTest {
 	public void initialize() {
 		category = new Category("food");
 		reviewTag = new ReviewTag("fruit");
-		underTest = new Review("Title", "www.github.io", category, reviewTag, "Content");
+		underTest = new Review("Title", "www.github.io", category, "Content", reviewTag);
 	}
 
 	@Test
@@ -27,7 +27,7 @@ public class ReviewTest {
 		String underTestTitle = underTest.getTitle();
 		String underTestImageUrl = underTest.getImageUrl();
 		String underTestContent = underTest.getContent();
-		assertEquals(1, underTestID);
+		assertEquals(0, underTestID);
 		assertThat(underTestTitle, is("Title"));
 		assertThat(underTestImageUrl, is("www.github.io"));
 		assertThat(underTestContent, is("Content"));
