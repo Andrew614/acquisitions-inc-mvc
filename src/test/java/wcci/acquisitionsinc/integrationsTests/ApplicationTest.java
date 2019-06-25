@@ -2,6 +2,7 @@ package wcci.acquisitionsinc.integrationsTests;
 
 import static org.junit.Assert.assertEquals;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -50,5 +51,13 @@ public class ApplicationTest {
 		for(Review review: reviews) {
 			assertThatStatusIsOk("/all-reviews/" + review.getId());
 		}
+	}
+	
+	@Test
+	public void shouldAddReviewAndRedirect() throws Exception {
+	ResultActions performMockPostRequest = this.mockMvc.perform(post("/all-reviews/add-review"));
+	performMockPostRequest.andExpect(status().is3xxRedirection());
+	
+	
 	}
 }
