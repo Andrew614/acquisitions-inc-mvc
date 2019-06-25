@@ -75,13 +75,14 @@ public class WebLayerTest {
 		this.mockMvc.perform(get("/all-reviews/2")).andDo(print()).andExpect(status().isOk());
 	}
 
-//	@Test
-//	public void addReview() throws Exception {
-//		Review reviewToAdd = new Review("", "", category, "");
-//
-//		mockMvc.perform(post("/add-review").contentType(MediaType.APPLICATION_JSON).content(toJson(reviewToAdd)))
-//				.andExpect(status().is3xxRedirection());
-//	}
+	@Test
+	public void addReview() throws Exception {
+		
+		Review reviewToAdd = new Review("", "", category, "", reviewTag);
+
+		mockMvc.perform(post("/all-reviews/add-review").contentType(MediaType.APPLICATION_JSON).content(toJson(reviewToAdd)))
+				.andExpect(status().is3xxRedirection());
+	}
 
 	@Test
 	public void shouldReturnAllCategoriesPage() throws Exception {
@@ -90,12 +91,33 @@ public class WebLayerTest {
 
 	@Test
 	public void shouldReturnAllTagsPage() throws Exception {
-		this.mockMvc.perform(get("/all-tags")).andDo(print()).andExpect(status().isOk());
+		this.mockMvc.perform(get("/all-reviewTags")).andDo(print()).andExpect(status().isOk());
+	}
+	
+	@Test
+	public void shouldAddCategory() throws Exception {
+		Category categoryToAdd = new Category("");
+		mockMvc.perform(post("/all-categories/add-category").contentType(MediaType.APPLICATION_JSON).content(toJson(categoryToAdd)))
+			.andExpect(status().is3xxRedirection());
+	}
+	
+	@Test
+	public void shouldAddReviewTag() throws Exception {
+		ReviewTag reviewTagToAdd = new ReviewTag("");
+		mockMvc.perform(post("/all-reviewTags/add-reviewTag").contentType(MediaType.APPLICATION_JSON).content(toJson(reviewTagToAdd)))
+			.andExpect(status().is3xxRedirection());
 	}
 	
 	private String toJson(Review reviewToAdd) {
 		return reviewToAdd.getTitle();
 	}
 	
+	private String toJson(Category category) {
+		return category.getName();
+	}
+	
+	private String toJson(ReviewTag reviewTag) {
+		return reviewTag.getName();
+	}
 
 }

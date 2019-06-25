@@ -1,8 +1,11 @@
 package wcci.acquisitionsinc.integrationsTests;
 
+import static org.junit.Assert.assertEquals;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+import java.util.Collection;
 
 import javax.annotation.Resource;
 
@@ -13,6 +16,11 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
+
+import wcci.acquisitionsinc.CategoryRepository;
+import wcci.acquisitionsinc.Review;
+import wcci.acquisitionsinc.ReviewRepository;
+import wcci.acquisitionsinc.ReviewTagRepository;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -27,6 +35,9 @@ public class ApplicationTest {
 
 	@Resource
 	private MockMvc mockMvc;
+	
+	@Resource
+	private ReviewRepository reviewRepo;
 		
 	@Test
 	public void shouldReviewsStatusBeOk() throws Exception {
@@ -35,6 +46,9 @@ public class ApplicationTest {
 
 	@Test
 	public void shouldReviewStatusBeOk() throws Exception {
-		assertThatStatusIsOk("/all-reviews/1");
+		Iterable<Review> reviews = reviewRepo.findAll();
+		for(Review review: reviews) {
+			assertThatStatusIsOk("/all-reviews/" + review.getId());
+		}
 	}
 }
