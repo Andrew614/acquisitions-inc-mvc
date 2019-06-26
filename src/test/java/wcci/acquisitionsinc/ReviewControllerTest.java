@@ -56,16 +56,6 @@ public class ReviewControllerTest {
 		String reviews = underTest.findAll(model);
 		assertThat(reviews, is("reviewsTemplate"));
 	}
-	@Test
-	public void shouldBeAbleToAddAndGetOneReview() {
-		Optional<Review> reviewOneOptional = Optional.of(reviewOne);
-		//Mockito.when(reviewRepo.save(reviewOne)).thenCallRealMethod();
-		ReviewTag[] reviewTags = new ReviewTag[reviewOne.getReviewTags().size()];
-		for(int i = 0; i < reviewOne.getReviewTags().size(); i++) {
-			reviewTags[i] = reviewOne.getReviewTags().get(i);
-		}
-		underTest.addReview(reviewOne.getTitle(), reviewOne.getImageUrl(), reviewOne.getCategory(), reviewOne.getContent(), reviewTags);
-	}
 
 	@Test
 	public void shouldHaveReviewsInModel() {

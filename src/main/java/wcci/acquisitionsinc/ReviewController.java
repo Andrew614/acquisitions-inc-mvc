@@ -31,7 +31,7 @@ public class ReviewController {
 
 	@PostMapping({"/add-review","/add-review/"}) 
 	public String addReview(String title, String imageUrl, Category category, String content, ReviewTag...reviewTags) {
-		reviewRepo.save(new Review(title, imageUrl, category, content, reviewTags));
+		//reviewRepo.save(new Review(title, imageUrl, category, content, reviewTags));
 		return "redirect:/all-reviews";
 		
 		

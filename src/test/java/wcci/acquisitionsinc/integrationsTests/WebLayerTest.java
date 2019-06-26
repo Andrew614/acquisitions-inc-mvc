@@ -78,7 +78,7 @@ public class WebLayerTest {
 	@Test
 	public void addReview() throws Exception {
 		
-		Review reviewToAdd = new Review("", "", category, "", reviewTag);
+		Review reviewToAdd = new Review("", "", category, "");
 
 		mockMvc.perform(post("/all-reviews/add-review").contentType(MediaType.APPLICATION_JSON).content(toJson(reviewToAdd)))
 				.andExpect(status().is3xxRedirection());

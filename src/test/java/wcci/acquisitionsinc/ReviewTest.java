@@ -18,7 +18,7 @@ public class ReviewTest {
 	public void initialize() {
 		category = new Category("food");
 		reviewTag = new ReviewTag("fruit");
-		underTest = new Review("Title", "www.github.io", category, "Content", reviewTag);
+		underTest = new Review("Title", "www.github.io", category, "Content");
 	}
 
 	@Test

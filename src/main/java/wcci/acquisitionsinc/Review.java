@@ -36,15 +36,13 @@ public class Review {
 
 	}
 
-	public Review(String title, String imageUrl, Category category, String content, ReviewTag... reviewTags) {
+	public Review(String title, String imageUrl, Category category, String content) {
 		this.title = title;
 		this.imageUrl = imageUrl;
 		this.content = content;
 		this.category = category;
-		this.reviewTags = new ArrayList<ReviewTag>();
-		for (ReviewTag reviewTag : reviewTags) {
-			this.reviewTags.add(reviewTag);
-		}
+//		this.reviewTags = new ArrayList<ReviewTag>();
+//		
 	}
 
 	public long getId() {
