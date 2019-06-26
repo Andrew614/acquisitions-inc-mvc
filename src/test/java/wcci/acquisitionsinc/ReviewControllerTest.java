@@ -7,6 +7,8 @@ import static org.mockito.MockitoAnnotations.initMocks;
 
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Optional;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
@@ -28,11 +30,9 @@ public class ReviewControllerTest {
 	
 	@Mock
 	private Review reviewOne;
-	Long reviewOneId = 1L;
 	
 	@Mock
 	private Review reviewTwo;
-	Long reviewTwoId = 2L;
 	
 	@Mock
 	Model model;
@@ -43,11 +43,13 @@ public class ReviewControllerTest {
 		initMocks(this);
 	}
 
-//	@Test
-//	public void shouldBeAbleToGetOneReview() {
-//		String review = underTest.getReview(1, model);
-//		assertThat(review, is("review"));
-//	}
+	@Test
+	public void shouldBeAbleToGetOneReview() {
+		Optional<Review> reviewOneOptional = Optional.of(reviewOne);
+		Mockito.when(reviewRepo.findById(0L)).thenReturn(reviewOneOptional);
+		underTest.getReview(0L, model);
+		verify(model).addAttribute("reviewAttribute", reviewOne);
+	}
 
 	@Test
 	public void shouldBeAbleToGetReviews() {
