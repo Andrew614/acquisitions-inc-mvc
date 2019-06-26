@@ -1,5 +1,6 @@
 package wcci.acquisitionsinc;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,8 +23,12 @@ public class ReviewTag {
 
 	}
 
-	public ReviewTag(String name) {
+	public ReviewTag(String name, Review...reviews) {
 		this.name = name;
+		this.reviews = new ArrayList<Review>();
+		for (Review review : reviews) {
+			this.reviews.add(review);
+		}
 	}
 
 	public String getName() {

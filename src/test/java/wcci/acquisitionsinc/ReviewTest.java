@@ -1,6 +1,7 @@
 package wcci.acquisitionsinc;
 
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertEquals;
 
@@ -13,11 +14,13 @@ public class ReviewTest {
 	Review underTest2;
 	Category category;
 	ReviewTag reviewTag;
+	ReviewTag reviewTag2;
 
 	@Before
 	public void initialize() {
 		category = new Category("food");
-		reviewTag = new ReviewTag("fruit");
+		reviewTag = new ReviewTag();
+		reviewTag2 = new ReviewTag();
 		underTest = new Review("Title", "www.github.io", category, "Content");
 	}
 
@@ -32,5 +35,4 @@ public class ReviewTest {
 		assertThat(underTestImageUrl, is("www.github.io"));
 		assertThat(underTestContent, is("Content"));
 	}
-
 }

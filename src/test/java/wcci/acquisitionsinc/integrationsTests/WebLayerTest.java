@@ -80,7 +80,7 @@ public class WebLayerTest {
 		
 		Review reviewToAdd = new Review("", "", category, "");
 
-		mockMvc.perform(post("/all-reviews/add-review").contentType(MediaType.APPLICATION_JSON).content(toJson(reviewToAdd)))
+		mockMvc.perform(post("/all-reviews/add-review").contentType(MediaType.APPLICATION_JSON).content()))
 				.andExpect(status().is3xxRedirection());
 	}
 
