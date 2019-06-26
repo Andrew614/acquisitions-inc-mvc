@@ -1,5 +1,7 @@
 package wcci.acquisitionsinc;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
@@ -28,7 +30,8 @@ public class ReviewController {
 	}
 
 	@PostMapping({"/add-review","/add-review/"}) 
-	public String addReview(String title, String imageUrl, Category category, ReviewTag reviewTag, String content) {
+	public String addReview(String title, String imageUrl, Category category, String content, ReviewTag...reviewTags) {
+		reviewRepo.save(new Review(title, imageUrl, category, content, reviewTags));
 		return "redirect:/all-reviews";
 		
 		

@@ -55,9 +55,7 @@ public class ApplicationTest {
 	
 	@Test
 	public void shouldAddReviewAndRedirect() throws Exception {
-	ResultActions performMockPostRequest = this.mockMvc.perform(post("/all-reviews/add-review"));
-	performMockPostRequest.andExpect(status().is3xxRedirection());
-	
-	
+		ResultActions performMockPostRequest = this.mockMvc.perform(post("/all-reviews/add-review"));
+		performMockPostRequest.andExpect(status().is3xxRedirection());
 	}
 }
