@@ -15,21 +15,19 @@
       <h1 class="main-header__title">Acquisitions Inc. Reviews</h1>
     </header>
     <div class="container">
-      <h2 th:each="review: ${reviews}">
-        <a th:text="${review.title}" th:href="|/reviews/${review.id}|">Review Title</a>
+      <h2 th:each="review: ${reviewsAttribute}">
+        <a th:text="${review.title}" th:href="|/all-reviews/${review.id}|">Review Title</a>
       </h2>
-      <form class="review-form" action="/reviews/add" method="POST">
+      <form class="review-form" action="/all-reviews/add-review" method="POST">
         <ul class="review-form__list">
-          <label class="review-form__field">Title:
-            <input type="text" name="title" placeholder="Enter Title here" /></label>
-          <label class="review-form__field">Category:
-            <input type="text" name="category" placeholder="Enter Category here" /></label>
-          <label class="review-form__field">Tags:
-            <input type="text" name="reviewTag" placeholder="Enter Tags here" /></label>
-          <label class="review-form__field">Image Url:
-            <input type="text" name="imageUrl" placeholder="Enter Image Url here" /></label>
-          <label class="review-form__field review-form__content">Content:
-            <textarea type="text" maxlength="1000" rows="4" cols="50" name="content" placeholder="Enter Content here"><textarea</label>
+            <label class="review-form__field">Title:
+                <input type="text" name="title" placeholder="Enter Title here" /></label>
+            <label class="review-form__field">Category:
+                <input type="text" name="category" placeholder="Enter Category here" /></label>
+            <label class="review-form__field">Image Url:
+                <input type="text" name="imageUrl" placeholder="Enter Image Url here" /></label>
+            <label class="review-form__field review-form__content">Content:
+                <textarea type="text" maxlength="1000" rows="4" cols="50" name="content" placeholder="Enter Content here"></textarea></label>
           <button class="review-form__button" type="submit">Submit</button>
         </ul>
       </form>

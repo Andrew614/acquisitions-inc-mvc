@@ -1,7 +1,7 @@
 package wcci.acquisitionsinc;
-import java.util.Collection;
-import java.util.HashMap;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -19,6 +19,18 @@ public class ReviewTag {
 	@ManyToMany(mappedBy = "reviewTags")
 	private Collection<Review> reviews;
 
+	public ReviewTag() {
+
+	}
+
+	public ReviewTag(String name, Review...reviews) {
+		this.name = name;
+		this.reviews = new ArrayList<Review>();
+		for (Review review : reviews) {
+			this.reviews.add(review);
+		}
+	}
+
 	public String getName() {
 		return name;
 	}
@@ -29,14 +41,6 @@ public class ReviewTag {
 
 	public Collection<Review> getReviews() {
 		return reviews;
-	}
-
-	protected ReviewTag() {
-
-	}
-	
-	public ReviewTag(String name) {
-		this.name = name;
 	}
 
 	@Override
