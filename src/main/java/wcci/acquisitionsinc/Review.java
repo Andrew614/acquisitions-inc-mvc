@@ -19,10 +19,9 @@ public class Review {
 
 	@ManyToOne
 	private Category category;
-	
+
 	@ManyToMany
 	private List<ReviewTag> reviewTags;
-
 
 	private String title;
 	private String imageUrl;
@@ -36,15 +35,11 @@ public class Review {
 
 	}
 
-	public Review(String title, String imageUrl, Category category, String content, ReviewTag... reviewTags) {
+	public Review(String title, String imageUrl, String content) {
 		this.title = title;
 		this.imageUrl = imageUrl;
 		this.content = content;
 		this.category = category;
-		this.reviewTags = new ArrayList<ReviewTag>();
-		for (ReviewTag reviewTag : reviewTags) {
-			this.reviewTags.add(reviewTag);
-		}
 	}
 
 	public long getId() {
@@ -62,7 +57,7 @@ public class Review {
 	public String getContent() {
 		return content;
 	}
-	
+
 	public Category getCategory() {
 		return category;
 	}

@@ -15,4 +15,9 @@ public class ReviewTagTest {
 	public void reviewTagClassShouldExist() {
 		ReviewTag underTest = new ReviewTag();
 	}
+	
+	@Test
+	public void reviewTagConstructorShouldHaveNameAndReviews() {
+		ReviewTag underTest = new ReviewTag("name", new Review());
+	}
 }
