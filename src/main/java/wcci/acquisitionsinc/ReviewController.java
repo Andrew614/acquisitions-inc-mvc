@@ -36,9 +36,25 @@ public class ReviewController {
 	}
 
 	@PostMapping({"/add-review","/add-review/"}) 
-	public String addReview(String title, String imageUrl, String content) {
+	public String addReview(String title, String imageUrl, String content, String category, String reviewTag) {
 		
-		reviewRepo.save(new Review(title, imageUrl, content));
+		
+		Review reviewToAdd = new Review(title, imageUrl, content);
+		reviewRepo.save(reviewToAdd);
+		
+		Category categoryToAdd = new Category(category);
+		if (categoryRepo.findByName(categoryToAdd.getName()) == null) {
+			categoryRepo.save(categoryToAdd);
+	    }
+		reviewToAdd.addCategory(categoryToAdd);	
+		
+		ReviewTag reviewTagToAdd = new ReviewTag(reviewTag);
+		if (reviewTagRepo.findByName(reviewTagToAdd.getName()) == null) {
+	            reviewTagRepo.save(reviewTagToAdd);
+	    }	
+		reviewToAdd.addReviewTag(reviewTagToAdd);
+		
+		reviewRepo.save(reviewToAdd);
 		
 		return "redirect:/all-reviews";
 	}

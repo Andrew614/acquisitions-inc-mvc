@@ -28,9 +28,9 @@ public class CategoryController {
 	
 	@PostMapping({"/add-category", "/add-category/"})
 	public String addCategory(String name) {
-		Category categoryTagToAdd = new Category(name);
-		if (categoryRepo.findByName(categoryTagToAdd.getName()) == null) {
-			categoryRepo.save(categoryTagToAdd);
+		Category categoryToAdd = new Category(name);
+		if (categoryRepo.findByName(categoryToAdd.getName()) == null) {
+			categoryRepo.save(categoryToAdd);
 	        }	
 		
 		return "redirect:/all-categories";
