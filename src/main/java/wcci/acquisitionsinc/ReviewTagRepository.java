@@ -5,5 +5,7 @@ import org.springframework.stereotype.Repository;
 
 //@Repository
 public interface ReviewTagRepository extends CrudRepository<ReviewTag, Long> {
+
+	ReviewTag findByName(String name);
 	
 }

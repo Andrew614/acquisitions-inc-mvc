@@ -39,7 +39,7 @@ public class Review {
 		this.title = title;
 		this.imageUrl = imageUrl;
 		this.content = content;
-		this.category = category;
+		this.reviewTags=new ArrayList<>();
 	}
 
 	public long getId() {
@@ -60,6 +60,13 @@ public class Review {
 
 	public Category getCategory() {
 		return category;
+	}
+	public void addCategory(Category category) {
+		this.category = category;
+	}
+	
+	public void addReviewTag(ReviewTag reviewTag) {
+		this.reviewTags.add(reviewTag);
 	}
 
 	@Override
@@ -107,5 +114,7 @@ public class Review {
 			return false;
 		return true;
 	}
+
+
 
 }

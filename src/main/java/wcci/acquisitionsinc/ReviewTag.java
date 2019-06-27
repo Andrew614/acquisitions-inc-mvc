@@ -23,12 +23,9 @@ public class ReviewTag {
 
 	}
 
-	public ReviewTag(String name, Review...reviews) {
+	public ReviewTag(String name) {
 		this.name = name;
-		this.reviews = new ArrayList<Review>();
-		for (Review review : reviews) {
-			this.reviews.add(review);
-		}
+		
 	}
 
 	public String getName() {
