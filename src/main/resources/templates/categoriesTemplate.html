@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8" />
@@ -10,19 +10,31 @@
 </head>
 
 <body>
-  <header class="main-header">
-    <h1 class="main-header__title">Acquisitions Inc. Categories</h1>
-  </header>
-  <form class="review-form" action="/all-categories" method="POST">
-    <ul class="review-form__list">
-      <label class="review-form__field">Category:
-        <input type="text" name="category" placeholder="Enter Category here" /></label>
-    </ul>
-    <button class="review-form__button" type="submit">Submit</button>
-  </form>
-  <footer class="main-footer">
-    <small class="main-footer__copy">&copy;2019</small>
-  </footer>
+  <div class="wrapper">
+    <header class="main-header">
+      <h1 class="main-header__title">Acquisitions Inc. Categories</h1>
+      <nav class="nav nav-margin__right">
+        <ul class="nav-list">
+          <li class="nav-list__item"><a href="#home" target="_blank">Home</a></li>
+          <li class="nav-list__item"><a href="/all-reviews/" target="_blank">Reviews</a></li>
+          <li class="nav-list__item"><a href="/all-categories/" target="_blank">Categories</a></li>
+          <li class="nav-list__item"><a href="/all-reviewTags/" target="_blank">Tags</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div class="container">
+      <form class="review-form" action="/all-categories" method="POST">
+        <ul class="review-form__list">
+          <label class="review-form__field">Category:
+            <input type="text" name="category" placeholder="Enter Category here" /></label>
+        </ul>
+        <button class="review-form__button" type="submit">Submit</button>
+      </form>
+    </div>
+    <footer class="main-footer">
+      <small class="main-footer__copy">&copy;2019</small>
+    </footer>
+  </div>
 </body>
 
 </html>

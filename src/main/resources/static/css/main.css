@@ -6,7 +6,7 @@
 }
 
 html {
-  --color-background: white;
+  --color-background: #bebeae;
   --color-text: black;
   --color-link-hover: rebeccapurple;
   --color-header: crimson;
@@ -27,6 +27,7 @@ ul {
 
 .main-footer {
   align-items: center;
+  background-color: var(--color-header);
   border-top: 0.1rem solid black;
   display: flex;
   justify-content: center;
@@ -74,6 +75,7 @@ ul {
 /* Utility Class */
 
 .container {
+  background-color: var(--color-background);
   margin-top: 0 auto;
 }
 
