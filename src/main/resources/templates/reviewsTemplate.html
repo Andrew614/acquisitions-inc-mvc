@@ -13,24 +13,35 @@
   <div class="wrapper">
     <header class="main-header">
       <h1 class="main-header__title">Acquisitions Inc. Reviews</h1>
+      <nav class="nav nav-margin__right">
+        <ul class="nav-list">
+          <li class="nav-list__item"><a href="#home" target="_blank">Home</a></li>
+          <li class="nav-list__item"><a href="#review" target="_blank">Reviews</a></li>
+          <li class="nav-list__item"><a href="#categories" target="_blank">Categories</a></li>
+          <li class="nav-list__item"><a href="#reviewTags" target="_blank">Tags</a></li>
+        </ul>
+      </nav>
     </header>
     <div class="container">
+      <form class="review-form" action="/all-reviews/add-review" method="POST">
+        <ul class="review-form__list">
+          <label class="review-form__field">Title:
+            <input type="text" required name="title" placeholder="Enter Title here" /></label>
+          <label class="review-form__field">Category:
+            <input type="text" required name="category" placeholder="Enter Category here" /></label>
+          <label class="review-form__field">Image Url:
+            <input type="text" required name="imageUrl" placeholder="Enter Image Url here" /></label>
+          <br>
+          <label class="review-form__field review-form__content">Content:
+            <textarea type="text" required maxlength="255" rows="3" cols="90" name="content"
+              placeholder="Enter Content here"></textarea></label>
+          <br>
+        </ul>
+        <button class="review-form__button" type="submit">Submit</button>
+      </form>
       <h2 th:each="review: ${reviewsAttribute}">
         <a th:text="${review.title}" th:href="|/all-reviews/${review.id}|">Review Title</a>
       </h2>
-      <form class="review-form" action="/all-reviews/add-review" method="POST">
-        <ul class="review-form__list">
-            <label class="review-form__field">Title:
-                <input type="text" name="title" placeholder="Enter Title here" /></label>
-            <label class="review-form__field">Category:
-                <input type="text" name="category" placeholder="Enter Category here" /></label>
-            <label class="review-form__field">Image Url:
-                <input type="text" name="imageUrl" placeholder="Enter Image Url here" /></label>
-            <label class="review-form__field review-form__content">Content:
-                <textarea type="text" maxlength="1000" rows="4" cols="50" name="content" placeholder="Enter Content here"></textarea></label>
-          <button class="review-form__button" type="submit">Submit</button>
-        </ul>
-      </form>
     </div>
     <footer class="main-footer">
       <small class="main-footer__copy">&copy;2019</small>
