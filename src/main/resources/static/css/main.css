@@ -36,8 +36,39 @@ ul {
   align-items: center;
   background-color: var(--color-header);
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   margin-bottom: 1rem;
+}
+
+.main-header__title {
+  margin: 2rem;
+}
+
+.nav-margin__right {
+  margin-right: 1rem;
+}
+
+.nav-list {
+  display: flex;
+}
+
+.nav-list__item {
+  margin-right: 0.5rem;
+}
+
+.review-form {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.review-form__button {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  background-color: var(--color-header);
+  font-size: 1.3rem;
+  border-radius: 0.5rem;
 }
 
 /* Utility Class */
