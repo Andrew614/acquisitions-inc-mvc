@@ -1,50 +1,53 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
-* { 
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
-    --color-background: white;
-    --color-text: black;
-    --color-link-hover: rebeccapurple;
-    --color-header: crimson;
-    font: 20px/1.618 'Roboto', sans-serif;
+  --color-background: white;
+  --color-text: black;
+  --color-link-hover: rebeccapurple;
+  --color-header: crimson;
+  font: 20px/1.618 "Roboto", sans-serif;
 }
 a {
-    text-decoration: none;
-    color: var(--color-text);
+  text-decoration: none;
+  color: var(--color-text);
 }
 
 a:hover {
-    color: var(--color-link-hover);
+  color: var(--color-link-hover);
+}
+
+ul {
+  list-style-type: none;
 }
 
 .main-footer {
-    align-items: center;
-    border-top: .1rem solid black;
-    display:flex;
-    justify-content: center;
+  align-items: center;
+  border-top: 0.1rem solid black;
+  display: flex;
+  justify-content: center;
 }
 
 .main-header {
-    align-items: center;
-    background-color: var(--color-header);
-    display: flex;
-    justify-content: center;
-    margin-bottom: 1rem;
+  align-items: center;
+  background-color: var(--color-header);
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
 }
-
 
 /* Utility Class */
 
 .container {
-    margin-top: 0 auto;
+  margin-top: 0 auto;
 }
 
 .wrapper {
-    display: grid;
-    grid-template-rows: 5rem auto 2rem;
-    min-height: 100vh;
+  display: grid;
+  grid-template-rows: 5rem auto 2rem;
+  min-height: 100vh;
 }
