@@ -7,6 +7,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
@@ -25,6 +26,7 @@ public class Review {
 
 	private String title;
 	private String imageUrl;
+	@Lob
 	private String content;
 
 	public List<ReviewTag> getReviewTags() {
@@ -39,7 +41,7 @@ public class Review {
 		this.title = title;
 		this.imageUrl = imageUrl;
 		this.content = content;
-		this.reviewTags=new ArrayList<>();
+		this.reviewTags = new ArrayList<>();
 	}
 
 	public long getId() {
@@ -53,7 +55,7 @@ public class Review {
 	public String getImageUrl() {
 		return imageUrl;
 	}
-
+	
 	public String getContent() {
 		return content;
 	}
@@ -61,10 +63,11 @@ public class Review {
 	public Category getCategory() {
 		return category;
 	}
+
 	public void addCategory(Category category) {
 		this.category = category;
 	}
-	
+
 	public void addReviewTag(ReviewTag reviewTag) {
 		this.reviewTags.add(reviewTag);
 	}
@@ -114,7 +117,5 @@ public class Review {
 			return false;
 		return true;
 	}
-
-
 
 }
