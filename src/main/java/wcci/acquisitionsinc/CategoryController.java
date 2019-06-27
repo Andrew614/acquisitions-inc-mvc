@@ -31,7 +31,7 @@ public class CategoryController {
 		Category categoryToAdd = new Category(name);
 		if (categoryRepo.findByName(categoryToAdd.getName()) == null) {
 			categoryRepo.save(categoryToAdd);
-	        }	
+	     }	
 		
 		return "redirect:/all-categories";
 	}

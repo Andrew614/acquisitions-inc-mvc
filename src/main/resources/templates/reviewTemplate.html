@@ -1,38 +1,38 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Acquisitions Inc. Review</title>
+    <link rel="stylesheet" href="/css/main.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>Acquisitions Inc. Review</title>
-  <link rel="stylesheet" href="/css/main.css" />
-</head>
-
-<body>
-  <div class="wrapper">
-    <header class="main-header">
-      <h1 class="main-header__title">Acquisitions Inc. Review</h1>
-    </header>
-    <div class="container">
-      <h2 th:text="${reviewAttribute.title}">Review Title</h2>
-      <img src="" alt="Review Image" />
-      <h3 th:text="${reviewAttribute.category.name}">Category</h3>
-      <p th:text="${reviewAttribute.reviewTags}">Tags</p>
-      <p th:text="${reviewAttribute.content}">
-        Content--- Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        Neque, aliquam, numquam architecto eius dicta ipsam labore ad illum
-        dolorum, quas quaerat quod aspernatur. Quos reprehenderit, voluptates
-        perspiciatis illum sint natus.
-      </p>
-      <a href="/all-reviews/">Back to Reviews</a>
+  <body>
+    <div class="wrapper">
+      <header class="main-header">
+        <h1 class="main-header__title">Acquisitions Inc. Review</h1>
+      </header>
+      <div class="container">
+        <h2 th:text="${reviewAttribute.title}">Review Title</h2>
+        <img th:src="@{${reviewAttribute.imageUrl}}" alt="Review Image" />
+        <h3 th:text="${reviewAttribute.category.name}">Category</h3>
+        <p th:each="reviewTag: ${reviewAttribute.reviewTags}">
+          <span th:text="${reviewTag.name}">Tag Name</span>
+        </p>
+        <p th:text="${reviewAttribute.content}">
+          Content--- Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Neque, aliquam, numquam architecto eius dicta ipsam labore ad illum
+          dolorum, quas quaerat quod aspernatur. Quos reprehenderit, voluptates
+          perspiciatis illum sint natus.
+        </p>
+        <a href="/all-reviews/">Back to Reviews</a>
+      </div>
+      <!--/.container-->
+      <footer class="main-footer">
+        <small class="main-footer__copy">&copy;2019</small>
+      </footer>
     </div>
-    <!--/.container-->
-    <footer class="main-footer">
-      <small class="main-footer__copy">&copy;2019</small>
-    </footer>
-  </div>
-  <!--/.wrapper-->
-</body>
-
+    <!--/.wrapper-->
+  </body>
 </html>
