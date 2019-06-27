@@ -46,13 +46,15 @@ public class ReviewController {
 		if (categoryRepo.findByName(categoryToAdd.getName()) == null) {
 			categoryRepo.save(categoryToAdd);
 	    }
-		reviewToAdd.addCategory(categoryToAdd);	
+		reviewRepo.findById(reviewToAdd.getId()).get().addCategory(categoryToAdd);
+//		reviewToAdd.addCategory(categoryToAdd);	
 		
 		ReviewTag reviewTagToAdd = new ReviewTag(reviewTag);
 		if (reviewTagRepo.findByName(reviewTagToAdd.getName()) == null) {
 	            reviewTagRepo.save(reviewTagToAdd);
 	    }	
-		reviewToAdd.addReviewTag(reviewTagToAdd);
+		reviewRepo.findById(reviewToAdd.getId()).get().addReviewTag(reviewTagToAdd);
+//		reviewToAdd.addReviewTag(reviewTagToAdd);
 		
 		reviewRepo.save(reviewToAdd);
 		
