@@ -21,7 +21,7 @@ public class ReviewTest {
 		category = new Category("food");
 		reviewTag = new ReviewTag();
 		reviewTag2 = new ReviewTag();
-		underTest = new Review("Title", "www.github.io", category, "Content");
+		underTest = new Review("Title", "www.github.io", "Content");
 	}
 
 	@Test

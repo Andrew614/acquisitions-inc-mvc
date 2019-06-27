@@ -35,7 +35,7 @@ public class Review {
 
 	}
 
-	public Review(String title, String imageUrl, Category category, String content) {
+	public Review(String title, String imageUrl, String content) {
 		this.title = title;
 		this.imageUrl = imageUrl;
 		this.content = content;

@@ -13,11 +13,14 @@ import javax.annotation.Resource;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import wcci.acquisitionsinc.Category;
 import wcci.acquisitionsinc.CategoryRepository;
@@ -29,6 +32,9 @@ import wcci.acquisitionsinc.ReviewTagRepository;
 @RunWith(SpringRunner.class)
 @WebMvcTest
 public class WebLayerTest {
+	
+	@Autowired
+	ObjectMapper objectMapper;
 
 	@Resource
 	private MockMvc mockMvc;
@@ -78,9 +84,9 @@ public class WebLayerTest {
 	@Test
 	public void addReview() throws Exception {
 		
-		Review reviewToAdd = new Review("", "", category, "");
+		Review reviewToAdd = new Review("", "", "");
 
-		mockMvc.perform(post("/all-reviews/add-review").contentType(MediaType.APPLICATION_JSON).content()))
+		mockMvc.perform(post("/all-reviews/add-review").contentType(MediaType.APPLICATION_JSON).content(objectMapper.writeValueAsString(reviewToAdd)))
 				.andExpect(status().is3xxRedirection());
 	}
 

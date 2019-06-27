@@ -15,17 +15,15 @@
       <h1 class="main-header__title">Acquisitions Inc. Reviews</h1>
     </header>
     <div class="container">
-      <h2 th:each="review: ${reviews}">
+      <h2 th:each="review: ${reviewsAttribute}">
         <a th:text="${review.title}" th:href="|/all-reviews/${review.id}|">Review Title</a>
       </h2>
-      <form class="review-form" action="/all-reviews/add" method="POST">
+      <form class="review-form" action="/all-reviews/add-review" method="POST">
         <ul class="review-form__list">
             <label class="review-form__field">Title:
                 <input type="text" name="title" placeholder="Enter Title here" /></label>
             <label class="review-form__field">Category:
                 <input type="text" name="category" placeholder="Enter Category here" /></label>
-            <label class="review-form__field">Tags:
-                <input type="text" name="reviewTag" placeholder="Enter Tags here" /></label>
             <label class="review-form__field">Image Url:
                 <input type="text" name="imageUrl" placeholder="Enter Image Url here" /></label>
             <label class="review-form__field review-form__content">Content:
