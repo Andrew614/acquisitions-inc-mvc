@@ -65,10 +65,6 @@ public class ReviewControllerTest {
 		verify(model).addAttribute("reviewsAttribute", reviews);
 	}
 	
-	@Test
-	public void shouldBeAbleToPostSingleReview() {
-		String addReviewReturnString = underTest.addReview("title", "imageUrl", "category", "content", "reviewTag1, reviewTag2");
-		assertThat(addReviewReturnString, is("redirect:/all-reviews"));
-	}
+
 
 }

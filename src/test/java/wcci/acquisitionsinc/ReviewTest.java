@@ -35,4 +35,18 @@ public class ReviewTest {
 		assertThat(underTestImageUrl, is("www.github.io"));
 		assertThat(underTestContent, is("Content"));
 	}
+	
+	@Test 
+	public void shouldBeAbleToAddCategory() {
+		underTest.addCategory(new Category("Drink"));
+		String gottenReview = underTest.getCategory().getName();
+		assertThat(gottenReview, is("Drink"));
+	}
+	
+//	@Test
+//	public void shouldBeAbleToAddTag() {
+//		underTest.addReviewTag(new ReviewTag("coffe"));
+//		String gottenTag = underTest.getReviewTags().get(0);
+//		
+//	}
 }

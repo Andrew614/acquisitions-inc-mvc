@@ -6,7 +6,6 @@ import java.util.Collection;
 import org.junit.Test;
 
 import wcci.acquisitionsinc.Category;
-import wcci.acquisitionsinc.Review;
 import wcci.acquisitionsinc.ReviewTag;
 
 public class ReviewTagTest {
@@ -15,9 +14,11 @@ public class ReviewTagTest {
 	public void reviewTagClassShouldExist() {
 		ReviewTag underTest = new ReviewTag();
 	}
+
 	
 	@Test
-	public void reviewTagConstructorShouldHaveNameAndReviews() {
-		ReviewTag underTest = new ReviewTag("name", new Review());
+	public void reviewTagShouldHaveReview() {
+		ReviewTag underTest = new ReviewTag("Books");
+		
 	}
 }
