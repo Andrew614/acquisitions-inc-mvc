@@ -19,37 +19,72 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class HttpRequestTest {
 	@Resource
 	private TestRestTemplate restTemplate;
-	
+
 	@LocalServerPort
 	private int port;
-	
+
 	String endpoint;
-	
+
 	private void assertThatEndPointIsOk(String endpoint) {
 		ResponseEntity<String> response = restTemplate.getForEntity(endpoint, String.class);
 		HttpStatus status = response.getStatusCode();
 		status.is2xxSuccessful();
-//		assertThat(status, is(HttpStatus.OK));
 	}
-	
-	@Test
-	public void reviewsEndPointIsOk() {
-		assertThatEndPointIsOk("/all-reviews");
-	}
-	
-	@Test 
-	public void reviews1EndPointIsOk() {
-		assertThatEndPointIsOk("/all-reviews/1");
-	}
-	
-	@Test	
-	public void reviews2EndPointIsOk() {
-		assertThatEndPointIsOk("/all-reviews/2");
-	}
-	@Test
-	public void addReviewsEndPointIsRedirect() {
-		ResponseEntity<String> response = restTemplate.getForEntity("/add-review", String.class);
+
+	private void assertThatEndPointIsRedirect(String mapping) {
+		ResponseEntity<String> response = restTemplate.getForEntity(mapping, String.class);
 		HttpStatus status = response.getStatusCode();
 		status.is3xxRedirection();
+	}
+
+	@Test
+	public void reviewsEndPointShouldBeOk() {
+		assertThatEndPointIsOk("/all-reviews");
+	}
+
+	@Test
+	public void reviews1EndPointShouldBeOk() {
+		assertThatEndPointIsOk("/all-reviews/1");
+	}
+
+	@Test
+	public void reviews2EndPointShouldBeOk() {
+		assertThatEndPointIsOk("/all-reviews/2");
+	}
+
+	@Test
+	public void addReviewsEndPointShouldBeRedirect() {
+		String mapping = "/all-reviews/add-review";
+		assertThatEndPointIsRedirect(mapping);
+	}
+
+	@Test
+	public void categoriesEndPointShouldBeOk() {
+		assertThatEndPointIsOk("/all-categories");
+	}
+
+	@Test
+	public void categoryEndPointShouldBeOk() {
+		assertThatEndPointIsOk("/all-categories/1");
+	}
+
+	@Test
+	public void addCategoriesEndPointShouldBeRedirect() {
+		assertThatEndPointIsRedirect("/all-categories/add-category");
+	}
+
+	@Test
+	public void reviewTagsEndPointShouldBeOk() {
+		assertThatEndPointIsOk("/all-reviewTags");
+	}
+
+	@Test
+	public void reviewTagEndPointShouldBeOk() {
+		assertThatEndPointIsOk("/all-reviewTags/1");
+	}
+
+	@Test
+	public void addReviewTagEndPointShouldBeRedirect() {
+		assertThatEndPointIsRedirect("/all-reviewTags/add-reviewTag");
 	}
 }
