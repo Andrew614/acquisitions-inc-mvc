@@ -29,27 +29,62 @@ public class HttpRequestTest {
 		ResponseEntity<String> response = restTemplate.getForEntity(endpoint, String.class);
 		HttpStatus status = response.getStatusCode();
 		status.is2xxSuccessful();
-//		assertThat(status, is(HttpStatus.OK));
+	}
+	
+	private void assertThatEndPointIsRedirect(String mapping) {
+		ResponseEntity<String> response = restTemplate.getForEntity(mapping, String.class);
+		HttpStatus status = response.getStatusCode();
+		status.is3xxRedirection();
 	}
 	
 	@Test
-	public void reviewsEndPointIsOk() {
+	public void reviewsEndPointShouldBeOk() {
 		assertThatEndPointIsOk("/all-reviews");
 	}
 	
 	@Test 
-	public void reviews1EndPointIsOk() {
+	public void reviews1EndPointShouldBeOk() {
 		assertThatEndPointIsOk("/all-reviews/1");
 	}
 	
 	@Test	
-	public void reviews2EndPointIsOk() {
+	public void reviews2EndPointShouldBeOk() {
 		assertThatEndPointIsOk("/all-reviews/2");
 	}
 	@Test
-	public void addReviewsEndPointIsRedirect() {
-		ResponseEntity<String> response = restTemplate.getForEntity("/add-review", String.class);
-		HttpStatus status = response.getStatusCode();
-		status.is3xxRedirection();
+	public void addReviewsEndPointShouldBeRedirect() {
+		String mapping = "/all-reviews/add-review";
+		assertThatEndPointIsRedirect(mapping);
+	}
+
+	
+	@Test
+	public void categoriesEndPointShouldBeOk() {
+		assertThatEndPointIsOk("/all-categories");
+	}
+	
+	@Test
+	public void categoryEndPointShouldBeOk() {
+		assertThatEndPointIsOk("/all-categories/1");
+	}
+	
+	@Test
+	public void addCategoriesEndPointShouldBeRedirect() {
+		assertThatEndPointIsRedirect("/all-categories/add-category");
+	}
+	
+	@Test
+	public void reviewTagsEndPointShouldBeOk() {
+		assertThatEndPointIsOk("/all-reviewTags");
+	}
+	
+	@Test
+	public void reviewTagEndPointShouldBeOk() {
+		assertThatEndPointIsOk("/all-reviewTags/1");
+	}
+	
+	@Test
+	public void addReviewTagEndPointShouldBeRedirect() {
+		assertThatEndPointIsRedirect("/all-reviewTags/add-reviewTag");
 	}
 }
