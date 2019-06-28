@@ -21,6 +21,10 @@ a:hover {
   color: var(--color-link-hover);
 }
 
+img {
+  max-width: 20rem;
+}
+
 ul {
   list-style-type: none;
 }
@@ -76,6 +80,7 @@ ul {
 
 .container {
   background-color: var(--color-background);
+  margin-right: 1rem;
   margin-top: 0 auto;
 }
 
