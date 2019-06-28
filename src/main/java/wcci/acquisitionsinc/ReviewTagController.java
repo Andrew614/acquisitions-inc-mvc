@@ -27,7 +27,7 @@ public class ReviewTagController {
 	
 	@RequestMapping({"/{id}","/{id}/"})
 	public String getTag(@PathVariable("id")Long id, Model model) {
-		model.addAttribute("reviewTagAttribute", reviewTagRepo.findById(id).get().getReviews());
+		model.addAttribute("reviewTagAttribute", reviewTagRepo.findById(id).get());
 		return "reviewTagTemplate";
 	}
 	
