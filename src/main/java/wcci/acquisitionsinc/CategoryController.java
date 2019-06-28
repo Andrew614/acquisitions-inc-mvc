@@ -16,13 +16,13 @@ public class CategoryController {
 	
 	@RequestMapping({"/",""})
 	public String findAll(Model model) {
-		model.addAttribute("categoryAttribute", categoryRepo.findAll());
-		return "categoryTemplate";
+		model.addAttribute("categoriesAttribute", categoryRepo.findAll());
+		return "categoriesTemplate";
 	}
 	
 	@RequestMapping({"/{id}","/{id}/"})
 	public String getCategory(@PathVariable("id")Long id, Model model) {
-		model.addAttribute("categoryAttribute", categoryRepo.findById(id).get().getReviews());
+		model.addAttribute("categoryAttribute", categoryRepo.findById(id).get());
 		return "categoryTemplate";
 	}
 	
