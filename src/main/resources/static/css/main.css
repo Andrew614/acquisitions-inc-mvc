@@ -80,8 +80,8 @@ ul {
 
 .container {
   background-color: var(--color-background);
-  margin-right: 1rem;
   margin-top: 0 auto;
+  padding: 1rem;
 }
 
 .wrapper {
